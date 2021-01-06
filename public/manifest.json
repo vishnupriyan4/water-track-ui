@@ -1,21 +1,26 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Water Track",
+  "name": "Water Track - Track what you drink",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logo-human-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "logo-human-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "logo-human-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src" : "logo-human-512x512.png",
+      "sizes" : "512x512",
+      "type" : "image/png"
     }
   ],
   "start_url": ".",

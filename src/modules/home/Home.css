@@ -1,0 +1,40 @@
+.added-div-block {
+    -webkit-animation: added-anim 2s ease-in-out 0s;
+    animation: added-anim 2s ease-in-out 0s;
+    opacity: 0;
+    font-size: large;
+}
+
+.typographyWhiteOverrides {
+    /* background: -webkit-linear-gradient(#3f51b5 #1E90FF); */
+    background-image: -webkit-linear-gradient(top, rgb(63, 81, 181), rgb(30, 144, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold !important;
+}
+
+@keyframes added-anim {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(-1200%);
+        transform: translateY(-1200%);
+        opacity: 0;
+    }
+}
+
+.trans {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.rotateViewContainer {
+    transform: rotateY(180deg);
+}

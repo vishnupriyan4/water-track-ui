@@ -1,0 +1,15 @@
+.typographyWhiteOverrides, .iconWhiteOverrides {
+    background-image: -webkit-linear-gradient(top, rgb(63, 81, 181), rgb(30, 144, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold !important;
+}
+
+.ant-spin-dot-item {
+    background-color: midnightblue;
+}
+
+.ant-spin-text {
+    color: midnightblue;
+    text-shadow: none !important;
+}

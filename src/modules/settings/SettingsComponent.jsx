@@ -91,9 +91,7 @@ const SettingsComponent = (props) => {
 
     const saveDialogChanges = () => {
         setSpinnerVisible(true);
-        // console.log(formValues);
         const userUpdateDetails = {...props.userDetails.userDetails, weight: formValues.weight, wakeUpTime: formValues.wakeUpTime, sleepTime: formValues.sleepTime};
-        console.log(userUpdateDetails);
         axiosWrapper.put('/users/updateUser/userDetails', {updatedObject: userUpdateDetails, isFromSettings: true}, {headers: {Authorization: `JWT ${props.jwtToken}`}})
         .then(() => {
             props.setUserDetails(props.userAuth.userId, props.jwtToken)
@@ -190,7 +188,6 @@ const SettingsComponent = (props) => {
     }
 
     function timeDeterminer(time) {
-        console.log(time);
         const splitVals = time.split(':');
         let returnTime;
         if (splitVals[0] > 12) {
@@ -232,11 +229,6 @@ const SettingsComponent = (props) => {
     }
 
     const customContainerSizeSubmit = () => {}
-    // let wakeUptime, sleepTime;
-    // if (props.userDetails.userDetails) {
-    //     wakeUptime = timeDeterminer(props.userDetails.userDetails.wakeUpTime);
-    //     sleepTime = timeDeterminer(props.userDetails.userDetails.sleepTime);
-    // }
 
     const classes = useStyles();
     const weights = getWeights();
@@ -246,36 +238,22 @@ const SettingsComponent = (props) => {
 
     return (
         props.userDetails.userDetails ? (
-            //<Paper className={classes.containerPaperOverrides}>
             <>
             <div>
                 <List subheader={
                     <div style={{display: 'flex'}}>
                         <ListSubheader className={subHeaderClasses}>Settings</ListSubheader>
-                        {/* <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
-                            // disabled={props.saveButtonDisable}
-                            className={classes.saveButton}
-                            // onClick={saveNotificationResponses}
-                            startIcon={<SaveIcon />}
-                        >
-                            Save
-                        </Button> */}
                     </div>
                 } >
                     <div className={classes.divStyles}>
                         <Paper className={classes.notificationPaperOverrides}>
                             <ListItem>
                               <ListItemIcon>
-                                {/* <NotificationsActiveIcon className={classes.listTextOverrides}/> */}
                                 <AccessibilityNewIcon className={classes.listTextOverrides}/>
                               </ListItemIcon>
                               <ListItemText className={listTextClasses} primary="Weight" />
                               <ListItemSecondaryAction>
                                 <span className={listTextClasses}>{props.userDetails.userDetails.weight} Kg</span>
-                                {/* <EditIcon className={classes.listTextOverrides} /> */}
                               </ListItemSecondaryAction>
                             </ListItem>
                         </Paper>
@@ -287,7 +265,6 @@ const SettingsComponent = (props) => {
                               <ListItemText className={listTextClasses} primary="Wakeup Time" />
                               <ListItemSecondaryAction>
                                 <span className={listTextClasses}>
-                                    {/* {props.userDetails.userDetails.wakeUpTime} */}
                                     {timeDeterminer(props.userDetails.userDetails.wakeUpTime)}
                                 </span>
                                 {/* <EditIcon className={classes.listTextOverrides} /> */}
@@ -304,16 +281,12 @@ const SettingsComponent = (props) => {
                                 <span className={listTextClasses}>
                                     {timeDeterminer(props.userDetails.userDetails.sleepTime)}
                                 </span>
-                                {/* <EditIcon className={classes.listTextOverrides} /> */}
                               </ListItemSecondaryAction>
                             </ListItem>
                         </Paper>
                     </div>
                 </List>
                 <div style={{position: 'absolute', bottom: '60px', width: '100%'}}>
-                    {/* <Fab color="primary" aria-label="edit" style={{background: 'linear-gradient(45deg, #3f51b5 30%, #1E90FF 90%)',float: 'right', marginRight: '10px', marginBottom: '10px'}} onClick={() => setDialogOpen(true)}>
-                      <EditIcon />
-                    </Fab> */}
                     <SpeedDial
                       style={{ float: 'right', marginRight: '10px', marginBottom: '10px'}}
                       ariaLabel="SpeedDial Settings"
@@ -351,17 +324,11 @@ const SettingsComponent = (props) => {
                 }}
             />
             </>
-            //</Paper> 
         ) : (
-            // <div>
-            //     Loading...
-            // </div>
             <LoadingScreenComponent />
         )        
 )
 }
-
-// export default SettingsComponent;
 
 export const mapStateToProps = state => {
     return {

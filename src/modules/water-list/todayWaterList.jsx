@@ -12,22 +12,6 @@ import "antd/dist/antd.css";
 import "./todayWaterList.css";
 import axiosWrapper from "../../apis/axiosCreate";
 
-// const useStyles = makeStyles({
-//     divStyles: {
-//         overflowX: 'hidden',
-//         overflowY: 'auto',
-//         height: '20vh'
-//     },
-//     paperOverrides: {
-//         display: 'flex',
-//         background: 'none',
-//         justifyContent: 'center'
-//     },
-//     iconOverrides: {
-//         color: 'white'
-//     }
-// })
-
 const TodayWaterList = (props) => {
   const useStyles = makeStyles({
     divStyles: {
@@ -107,7 +91,6 @@ const TodayWaterList = (props) => {
                       <Paper elevation={0} className={classes.paperOverrides}>
                         <DeleteIcon
                           onClick={() =>
-                            // props.deleteWaterEntry(props.jwtToken, obj._id)
                             deleteWaterEntry(obj._id)
                           }
                           className={iconOverrideClasses}
@@ -119,54 +102,11 @@ const TodayWaterList = (props) => {
               ))}
             </>
           ) : (
-            // <Empty
-            //   image={emptyState}
-            //   imageStyle={{
-            //     height: 60,
-            //   }}
-            //   description={
-            //     <span>
-            //       {/* Customize <a href="#API">Description</a> */}
-            //       Oops! Seems you have'nt had your first glass of water
-            //     </span>
-            //   }
-            // >
-            // </Empty>
             <>
-              {/* <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'}}> */}
-              {/* Yet to have your first glass of water for today */}
-              {/* </div> */}
             </>
           )}
-          {/* {props.userDetails.todaysWaterTimeline.map(obj => 
-                    <>
-                    <Grid container spacing={3}>
-                        <Grid item xs>
-                            <Paper elevation={0} className={classes.paperOverrides}>
-                                <LocalDrinkIcon className={iconOverrideClasses} />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs>
-                            <Paper elevation={0} className={classes.paperOverrides}>
-                                <Typography className={iconOverrideClasses}>{obj.time}</Typography>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs>
-                            <Paper elevation={0} className={classes.paperOverrides}>
-                                <Typography className={iconOverrideClasses}>{obj.waterLevel}(ml)</Typography>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs>
-                            <Paper elevation={0} className={classes.paperOverrides}>
-                                <DeleteIcon onClick={() => props.deleteWaterEntry(props.jwtToken, obj._id)} className={iconOverrideClasses}/>
-                            </Paper>
-                        </Grid>
-                    </Grid>
-                    </>
-                )} */}
         </div>
       </div>
-      {/* Water */}
     </Spin>
   ) : (
     <>Loading</>

@@ -55,5 +55,3 @@ const WaterLevelDrawer = (props) => {
 }
 
 export default WaterLevelDrawer;
-
-// direction, status, sliderMaxVal, defaultVal, onChangeFunc, cancelFunc, submitFunc

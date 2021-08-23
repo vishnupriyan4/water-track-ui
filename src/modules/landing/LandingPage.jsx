@@ -32,13 +32,6 @@ const LandingPageComponent = (props) => {
                 props.history.replace('/consent');
             }
         })
-
-        // localForage.getItem('jwtToken').then(token => console.log("TOKEN", token));
-        // if (window.localStorage.getItem('userAuthId')) {
-        //     getUserDetails();
-        // } else {
-        //     props.history.replace('/consent');
-        // }
     },[])
 
     return (

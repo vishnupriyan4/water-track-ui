@@ -8,37 +8,13 @@ import LandingPageComponent from './modules/landing/LandingPage';
 import ConsentPageComponent from './modules/registration/ConsentPage';
 import HeaderComponent from './modules/header/components/Header';
 import { setBlueTheme } from './store/actions/index';
-// import FooterComponent from './modules/footer/components/FooterComponent';
 import './App.css';
 import { makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
 
-// const useStyles = makeStyles({
-//   paperRoot: {
-//     background: 'linear-gradient(45deg, #3f51b5 30%, #1E90FF 90%)', 
-//     height: '100vh', 
-//     opacity: 0.9,
-//     overflow: 'hidden'
-//   }
-// })
-
 function App(props) {
-  // const resp = async () => {
-  //   console.log(process.env.REACT_APP_API_URL)
-  //   await axios.get(process.env.REACT_APP_API_URL)
-  //     .then(resp=> console.log(resp))
-  //     .catch(err => console.error(err));
-  // }
-  // resp();
-
-//   const testFn = async () => {
-//     await axios.get('https://yoyo-gift-301-api.herokuapp.com/').then(resp => 
-//     console.log(resp))
-// }
-console.log('blueTheme', props.theme.blueTheme)
 const useStyles = makeStyles({
-  paperRoot: {
-    // background: 'linear-gradient(45deg, #3f51b5 30%, #1E90FF 90%)', 
+  paperRoot: { 
     background: `${props.theme.blueTheme ? 'linear-gradient(45deg, #3f51b5 30%, #1E90FF 90%)' : 'none'}`,
     height: '100vh', 
     opacity: 0.9,
@@ -60,26 +36,8 @@ const useStyles = makeStyles({
     position: "all",
     color: ["#1E90FF"],
     cross: "dead",
-    // emitter: "follow",
     random: 15
   };
-
-  // if (Math.random() > 0.85) {
-  //   config = Object.assign(config, {
-  //     onParticleUpdate: (ctx, particle) => {
-  //       ctx.beginPath();
-  //       ctx.rect(
-  //         particle.p.x,
-  //         particle.p.y,
-  //         particle.radius * 2,
-  //         particle.radius * 2
-  //       );
-  //       ctx.fillStyle = particle.color;
-  //       ctx.fill();
-  //       ctx.closePath();
-  //     }
-  //   });
-  // }
 
   return (
     <LocalizeProvider>
@@ -88,18 +46,14 @@ const useStyles = makeStyles({
           <ParticlesBg style={{backgroundColor: 'blue'}} type="custom" config={config} bg={true} />
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/" render={props => {return <LandingPageComponent {...props} />}} /> */}
           <Route exact path="/consent" component={ConsentPageComponent} />
           <Route path="/" component={LandingPageComponent} />
-          {/* <Redirect from="/" to="/home" /> */}
         </Switch>
       </BrowserRouter>
       </Paper>
     </LocalizeProvider>
   );
 }
-
-// export default App;
 
 export const mapStateToProps = state => {
   return {

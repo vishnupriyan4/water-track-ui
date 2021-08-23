@@ -45,7 +45,6 @@ const NotificationComponent = (props) => {
         saveButton: {
             marginTop: '10px',
             marginRight: '10px',
-            // background: 'linear-gradient(45deg, #3f51b5 30%, #1E90FF 90%)',
         }
     });
 
@@ -53,18 +52,12 @@ const NotificationComponent = (props) => {
     const [spinnerVisible, setSpinnerVisible] = useState(false);
 
     function handleNotificationToggle(ev) {
-        // console.log(ev.target.id);
         const split = ev.target.id.split(' ');
-        // const userDetails = [...props.userDetails.userDetails.notificationTimings];
-        // userDetails[+split[1]].skipped = !userDetails[+split[1]].skipped;
         const userDetails = {...props.userDetails};
         userDetails.userDetails.notificationTimings[+split[1]].skipped = !userDetails.userDetails.notificationTimings[+split[1]].skipped;
         console.log(userDetails);
         props.editUserDetails(userDetails.userDetails);
         props.notificationSaveStatusChange(false);
-        // axiosWrapper.put('/users/updateUser/userDetails', {updatedObject: {notificationTimings: userDetails}}, {headers: {Authorization: `JWT ${window.localStorage.getItem('jwtToken')}`}}).then(() => {
-        //     props.setUserDetails(props.userAuth.userId, window.localStorage.getItem('jwtToken'));
-        // })
     }
 
     function saveNotificationResponses() {
@@ -76,24 +69,6 @@ const NotificationComponent = (props) => {
             });
         })
     }
-
-    // function timeDeterminer(time) {
-    //     // console.log(time);
-    //     // const splitVals = time.split(':');
-    //     time = `${time.toString()}:00`
-    //     // time = time.toString();
-    //     console.log(typeof time)
-    //     let returnTime;
-    //     if (time > 12) {
-    //         time = (+time - 12).toString();
-    //         returnTime = `${time.slice(-2)}:00 PM`;
-    //     } else if (time < 12) {
-    //         returnTime = `${time.slice(-2)}:00 AM`;
-    //     } else {
-    //         returnTime = `${time.slice(-2)}:00 PM`;
-    //     }
-    //     return returnTime;
-    // }
 
     function timeDeterminer(time) {
         time = `${time.toString()}:00`;
@@ -132,9 +107,6 @@ const NotificationComponent = (props) => {
                             >
                               Save
                             </Button>
-                            {/* <Fab color="primary" aria-label="edit">
-                              <SaveIcon />
-                            </Fab> */}
                         </div>
                     } >
                         <div className={classes.divStyles}>
@@ -156,7 +128,6 @@ const NotificationComponent = (props) => {
                                       id={`index ${i}`}
                                       onChange={handleNotificationToggle}
                                       checked={!notification.skipped}
-                                    //   inputProps={{ 'aria-labelledby': 'switch-list-label-wifi' }}
                                     />
                                   </ListItemSecondaryAction>
                                 </ListItem>
@@ -167,15 +138,10 @@ const NotificationComponent = (props) => {
                     </Spin>
                 </Paper>
             ) : (
-                // <div>
-                //     Loading...
-                // </div>
                 <LoadingScreenComponent />
             )        
     )
 };
-
-// export default NotificationComponent;
 
 export const mapStateToProps = state => {
     return {

@@ -45,30 +45,6 @@ const HeaderComponent = (props) => {
                 setSpinnerVisible(false);
             })
         })
-        // const PUBLIC_VAPID_KEY = 'BGGtv29oPNvkZWamgmzSN3MRCl6n8XyH-K6_JVKXDHwIPbZkjM2p6f9IEELthC8iFVZIdHtWESS1Y0jbbW6zKqc';
-        // const PRIVATE_VAPID_KEY = 'JxP6cNzwR4WZ5IB8KAOXxAQWVCUklCxTOXdBRLq2PQA';
-        // const WEB_PUSH_CONTACT='mailto: contact@my-site.com';
-        // webPush.setVapidDetails(WEB_PUSH_CONTACT, PUBLIC_VAPID_KEY, PRIVATE_VAPID_KEY);
-        // const req = {body: {
-        //     "subscription" : {
-        //         "endpoint" : "https://fcm.googleapis.com/fcm/send/fv2LhB2P6Xk:APA91bF0_M0VMp5f2_3C2puI5y_C05t5sQ6sUXPbqxn-fFNXKZ8pPCjVyJDcDBBMb9gmvOoh092DhNqck4zko1zQb3v78NFv1vcWdKSZH-jaMU1ur-HPf6KQO81VRkX2Ch80H56nEFDm",
-        //         "expirationTime" : null,
-        //         "keys" : {
-        //             "p256dh" : "BE8uUl5lw0m9glIfEbcc58SwodEOJbI65JL8sqecvsgf2qvfjQ6YQdj9op3-fw9tplcRpb2xt5GRQaLsR-NJEi4",
-        //             "auth" : "8Rw-RoXJVLPpj31oUnyBrw"
-        //         }
-        //     }
-        // }};
-        // const payload = JSON.stringify({
-        //     title: "Moodhevi !!",
-        //     body: `Hii :) `,
-        //     actions: [
-        //         {action: 'close', title: 'Close'},
-        //     ]
-        // })
-        // webPush.sendNotification(req.body.subscription, payload)
-        //             .then(result => console.log('notification sent'))
-        //             .catch(error => console.log(error.stack));
     }
 
     return (
@@ -88,7 +64,6 @@ const HeaderComponent = (props) => {
                         checked={props.theme.blueTheme}
                         onChange={handleThemeChange}
                         color="default"
-                        // inputProps={{ 'aria-label': 'primary checkbox' }}
                         inputProps={{ 'aria-label': 'checkbox with default color' }}
                     />
                 </Toolbar>
@@ -106,8 +81,6 @@ const HeaderComponent = (props) => {
         </div>
     )
 }
-
-// export default HeaderComponent;
 
 export const mapStateToProps = state => {
     return {

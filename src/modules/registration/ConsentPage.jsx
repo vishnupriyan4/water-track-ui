@@ -33,7 +33,6 @@ import { Spin } from 'antd'
 import { setUserId } from '../registration/state/actions/index';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
-// import {subscribeUser} from '../../subscription';
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {
@@ -160,7 +159,6 @@ export function CustomizedSteppers(props) {
   const [showNotificationDialog, setNotificationDialog] = useState(false);
   const [spinnerVisible, setSpinnerVisible] = useState(false);
   const [showMessageForNext, setShowMessageForNext] = useState(false);
-  // const [disableNextButton, setDisableNextButton] = useState(false);
   const steps = getSteps();
   const weights = getWeights();
 
@@ -176,7 +174,6 @@ export function CustomizedSteppers(props) {
           if (existedSubscription === null) {
             console.log(`No subscription detected, making request. But ${askPermission} is....`)
             if (askPermission) {
-              // setDisableNextButton(true);
               Notification.requestPermission(function(status) {
                 console.log('NOti',status);
               })
@@ -187,7 +184,6 @@ export function CustomizedSteppers(props) {
               }).then(function(newSubscription) {
                 console.log('New subscription added.')
                 setSpinnerVisible(false);
-              // setDisableNextButton(false);
               setAskPermission(false);
               resolve(newSubscription);
               postFormContent();
@@ -208,8 +204,6 @@ export function CustomizedSteppers(props) {
           }
           } else {
             console.log('Existed subscription detected.')
-            // setDisableNextButton(false);
-            // setSpinnerVisible(false);
             resolve(existedSubscription);
           }
         })
@@ -233,11 +227,9 @@ export function CustomizedSteppers(props) {
     return (
       <Dialog
       open={showNotificationDialog}
-      // onClose={handleDialogClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
       >
-      {console.log(showNotificationDialog)}
         <DialogTitle id="alert-dialog-title">{"Notifications Blocked ?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
@@ -295,7 +287,6 @@ export function CustomizedSteppers(props) {
 }
 
   return (
-      // <Spin spinning={true}>
     <div className={classes.root}>
       <Stepper className={classes.paperOverrides} alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
         {steps.map((label) => (
@@ -305,7 +296,6 @@ export function CustomizedSteppers(props) {
         ))}
       </Stepper>
       <div>
-        {/* <Spin spinning={true}> */}
         <Card className={classes.cardOverrides}>
             <CardActionArea>
               <Spin size="large" spinning={spinnerVisible} tip="Registering">
@@ -417,7 +407,6 @@ export default connect(mapStateToProps, {
 })(CustomizedSteppers);
 
 const convertedVapidKey = urlBase64ToUint8Array('BGGtv29oPNvkZWamgmzSN3MRCl6n8XyH-K6_JVKXDHwIPbZkjM2p6f9IEELthC8iFVZIdHtWESS1Y0jbbW6zKqc')
-// const convertedVapidKey = urlBase64ToUint8Array(process.env.REACT_APP_PUBLIC_VAPID_KEY)
 
 function urlBase64ToUint8Array(base64String) {
   const padding = "=".repeat((4 - base64String.length % 4) % 4)
